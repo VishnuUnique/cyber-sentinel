@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: cyber-sentinel-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -e .
+    startCommand: python scripts/startup.py && uvicorn cyber_sentinel.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: src
+      - key: DATABASE_URL
+        value: sqlite:///database/cyber_sentinel.db
+      - key: LOG_LEVEL
+        value: INFO
+    healthCheckPath: /health
+
+  - type: web
+    name: cyber-sentinel-dashboard
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -e .
+    startCommand: python scripts/startup.py && streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHONPATH
+        value: src
+      - key: DATABASE_URL
+        value: sqlite:///database/cyber_sentinel.db
