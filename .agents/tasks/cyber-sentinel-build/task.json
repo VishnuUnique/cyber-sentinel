@@ -1,0 +1,7 @@
+{
+  "task_id": "task-cyber-sentinel-build",
+  "task_description": "Build a complete, runnable, production-style Intelligent Cyber Threat and Network Anomaly Detection Sentinel in Python. End-to-end pipeline: telemetry ingestion → feature engineering → dual-layer ML detection → risk scoring → SQLite audit log → FastAPI REST API → Streamlit dashboard → Typer CLI. Includes synthetic data generation, model training, automated tests, Docker support, and documentation.",
+  "status": "pending",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004", "FEAT-005"],
+  "blocked_reason": null
+}

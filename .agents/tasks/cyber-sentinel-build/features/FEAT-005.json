@@ -1,0 +1,40 @@
+{
+  "id": "FEAT-005",
+  "type": "docs",
+  "description": "Docker support, documentation, and final polish. Depends on all previous FEATs. Adds Dockerfile, docker-compose.yml, README.md, and all docs/ markdown files. Also ensures the full end-to-end flow works and adds any missing __init__.py files or exports identified during prior FEATs.",
+  "status": "pending",
+  "steps": [
+    "Create Dockerfile: FROM python:3.11-slim. WORKDIR /app. COPY requirements.txt . RUN pip install --no-cache-dir -r requirements.txt. COPY . . RUN pip install -e . --no-deps. Create directories: RUN mkdir -p /app/database /app/logs /app/models/anomaly /app/models/classifier. EXPOSE 8000. ENV CS_DB_PATH=/app/database/cyber_sentinel.db CS_MODELS_DIR=/app/models CS_LOG_LEVEL=INFO. Default CMD: ['python','-m','uvicorn','cyber_sentinel.api.main:app','--host','0.0.0.0','--port','8000'].",
+
+    "Create docker-compose.yml with two services: api (build: ., ports: 8000:8000, volumes: ./database:/app/database, ./models:/app/models, ./data:/app/data, ./logs:/app/logs, env_file: .env) and dashboard (build: ., command: streamlit run src/cyber_sentinel/dashboard/app.py --server.port 8501 --server.headless true, ports: 8501:8501, volumes same as api, depends_on: api). Add a network: sentinel-net.",
+
+    "Create README.md with these sections: title+badge row (Python 3.11+, License MIT, Hackathon), Overview paragraph (what the system does, two sentences), Architecture diagram (ASCII from the spec), Quick Start (5 steps: clone, pip install -e .[dev], generate data, train, run analyze + dashboard + api), CLI Reference (table of all commands + options), API Reference (table of all endpoints), Configuration (explain config.yaml and policy.yaml), Docker Usage (docker-compose up), Sample Output (show example CLI table output, example JSON analysis response), Project Structure (tree), Technical Notes (synthetic data disclaimer, feature engineering explanation), License.",
+
+    "Create docs/architecture.md: detailed explanation of the pipeline — each component (ingestion, feature engineering, anomaly detection, classifier, risk engine, outputs), data flow diagram, design decisions (why Isolation Forest, why Random Forest, sliding window rationale, risk formula derivation).",
+
+    "Create docs/detection.md: explain the dual-layer detection approach, describe each of the 26 features and what threat behavior they capture, explain the five threat classes and their behavioral signatures, explain the evidence generation logic.",
+
+    "Create docs/api.md: full API reference with curl examples for every endpoint, request/response schemas, error codes, authentication note (none in v1 — add a TODO for API key auth).",
+
+    "Create docs/demo.md: step-by-step demo walkthrough — install, generate data, train, run each attack type through the CLI, observe risk scores and evidence, run the dashboard, call the API, show expected outputs for each attack type.",
+
+    "Audit all src/cyber_sentinel/*/__init__.py files: ensure every subpackage exports its main public classes/functions. Verify no circular imports by checking that: ingestion does NOT import from detection or risk; features does NOT import from detection or risk; detection imports from features only; risk imports from detection only via return values (not direct import of pipeline); api and cli import from all layers but are not imported by any layer; dashboard imports from database and config only.",
+
+    "Final integration check: ensure the complete flow works end-to-end: python scripts/generate_demo_data.py → python scripts/train_models.py → python scripts/ingest.py data/samples/mixed.jsonl → python -m cyber_sentinel.cli.main alerts → python -m cyber_sentinel.cli.main analyze data/samples/port_scan.jsonl --max-risk 40 should exit 1. Fix any import errors, path resolution bugs, or missing dependencies discovered during this check."
+  ],
+  "acceptance_criteria": [
+    "docker build -t cyber-sentinel . completes without error (or if Docker not available, Dockerfile is syntactically correct)",
+    "README.md exists and has all sections: Overview, Quick Start, CLI Reference, API Reference, Docker Usage",
+    "docs/architecture.md, docs/detection.md, docs/api.md, docs/demo.md all exist with meaningful content",
+    "python -c 'import cyber_sentinel; from cyber_sentinel.ingestion import TelemetryParser; from cyber_sentinel.features import FeatureExtractor,FEATURE_NAMES; from cyber_sentinel.detection import DetectionPipeline; from cyber_sentinel.risk import RiskScorer; from cyber_sentinel.api.main import app; print(\"All imports OK\")' succeeds",
+    "Full end-to-end: python scripts/generate_demo_data.py && python scripts/train_models.py && python scripts/ingest.py data/samples/mixed.jsonl runs cleanly and populates the DB",
+    "pytest tests/ -v — all tests pass"
+  ],
+  "verification": [
+    "cd 'c:\\Users\\afsha\\PROJECT\\New folder\\cyber-sentinel' && python -c 'import cyber_sentinel; from cyber_sentinel.ingestion import TelemetryParser; from cyber_sentinel.features import FeatureExtractor,FEATURE_NAMES; from cyber_sentinel.detection import DetectionPipeline; from cyber_sentinel.risk import RiskScorer; from cyber_sentinel.api.main import app; print(\"All imports OK\")'",
+    "python scripts/generate_demo_data.py && python scripts/train_models.py && python scripts/ingest.py data/samples/mixed.jsonl",
+    "pytest tests/ -v"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

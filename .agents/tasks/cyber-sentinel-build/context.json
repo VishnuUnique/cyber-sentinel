@@ -1,0 +1,33 @@
+{
+  "project_type": "Python monorepo — src/ layout with pip install -e ., FastAPI backend, Streamlit dashboard, Typer CLI, scikit-learn ML pipeline, SQLite persistence",
+  "language": "Python 3.11+ (host has Python 3.14.7)",
+  "build_system": "setuptools via pyproject.toml with [tool.setuptools.packages.find] where=['src']. Install: pip install -e .[dev]. No separate compile step — pure Python.",
+  "test_framework": "pytest 8.2.0 with pytest-asyncio 0.23.6 and httpx 0.27.0 for async API tests. Run: pytest tests/ -v",
+  "build_command": "pip install -e .[dev]",
+  "test_command": "pytest tests/ -v",
+  "verification_instructions": "1. cd cyber-sentinel  2. pip install -e .[dev]  3. python scripts/generate_demo_data.py  4. python scripts/train_models.py  5. python scripts/ingest.py data/samples/mixed.jsonl  6. pytest tests/ -v  7. python -m cyber_sentinel.cli.main analyze data/samples/mixed.jsonl  8. uvicorn cyber_sentinel.api.main:app --reload (verify /health returns 200)",
+  "snapshot_or_generated_files": "models/anomaly/isolation_forest.joblib, models/classifier/random_forest.joblib, models/classifier/label_encoder.joblib, models/classifier/feature_names.joblib, database/cyber_sentinel.db — all produced by train_models.py and runtime ingestion. Not checked in.",
+  "environment_constraints": "Windows/PowerShell. Use os.path.join or forward-slash strings for paths in Python. All paths in Python code must be computed relative to project root using pathlib.Path(__file__).resolve().parents[N]. Never hardcode Windows absolute paths in source.",
+  "contribution_requirements": "Greenfield project — no AGENTS.md or CONTRIBUTING.md yet. Follow the architecture diagram exactly: ingestion→features→detection→risk→outputs. FEATURE_NAMES constant must be identical at train and inference time (defined once in features/extractor.py, imported everywhere).",
+  "key_patterns": "1. FEATURE_NAMES: single source of truth in src/cyber_sentinel/features/extractor.py, imported by both train and infer paths. 2. Models: loaded lazily via is_trained property; graceful degradation (anomaly_score=50, classification='Unknown') when not trained. 3. Risk formula: (anomaly*0.40)+(classifier_confidence_score*0.30)+(evidence*0.30), clamped [0,100]. classifier_confidence_score=confidence*100 if threat!='Normal' else confidence*10. 4. All __init__.py files export main public classes. 5. SQLAlchemy 2.0 declarative style. 6. Pydantic v2 model_config instead of class Config.",
+  "relevant_files": [
+    "src/cyber_sentinel/features/extractor.py (FEATURE_NAMES constant — must match train/infer)",
+    "src/cyber_sentinel/detection/anomaly.py (IsolationForest + StandardScaler + score normalization)",
+    "src/cyber_sentinel/detection/classifier.py (RandomForest + LabelEncoder)",
+    "src/cyber_sentinel/detection/pipeline.py (orchestrates both layers)",
+    "src/cyber_sentinel/risk/scorer.py (deterministic formula)",
+    "src/cyber_sentinel/risk/evidence.py (feature-level explanations with actual values)",
+    "src/cyber_sentinel/database/models.py (SQLAlchemy Alert ORM model)",
+    "src/cyber_sentinel/database/repository.py (CRUD operations)",
+    "src/cyber_sentinel/api/routes.py (all FastAPI endpoints)",
+    "src/cyber_sentinel/cli/main.py (all Typer commands)",
+    "src/cyber_sentinel/dashboard/app.py (Streamlit app)",
+    "scripts/generate_demo_data.py (synthetic JSONL data generator)",
+    "scripts/train_models.py (trains both models, saves joblib files)",
+    "tests/conftest.py (shared fixtures, handles missing models gracefully)",
+    "config/config.yaml (all tunable parameters)",
+    "config/policy.yaml (risk thresholds and response actions)",
+    "pyproject.toml (package metadata + dependencies + optional dev extras)"
+  ],
+  "directory_structure": "cyber-sentinel/ — project root with pyproject.toml, requirements.txt, Dockerfile, docker-compose.yml | config/ — YAML config and policy | data/{raw,processed,training,samples}/ — data directories with .gitkeep | models/{anomaly,classifier}/ — saved joblib model files | database/ — SQLite DB file at runtime | logs/ — log output | scripts/ — standalone runner scripts | src/cyber_sentinel/ — installable package (ingestion, features, detection, risk, database, api, cli, dashboard, config, utils) | tests/ — pytest suite | docs/ — markdown documentation"
+}

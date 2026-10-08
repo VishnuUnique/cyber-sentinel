@@ -1,0 +1,9 @@
+policy:
+  max_risk: 70
+  block_on_malicious: true
+  alert_on_suspicious: true
+  noise_filter: true
+
+notifications:
+  log_all_alerts: true
+  log_policy_breaches: true

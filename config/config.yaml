@@ -1,0 +1,51 @@
+window_seconds: 60
+feature_windows:
+  - 30
+  - 60
+  - 300
+
+anomaly:
+  contamination: 0.05
+  random_state: 42
+  model_version: "1.0.0"
+
+classifier:
+  n_estimators: 100
+  random_state: 42
+  model_version: "1.0.0"
+
+risk:
+  anomaly_weight: 0.40
+  classifier_weight: 0.30
+  evidence_weight: 0.30
+  max_risk: 70
+
+noise:
+  enabled: true
+  event_types:
+    - dhcp
+    - arp
+    - multicast
+    - service_discovery
+
+database:
+  url: "sqlite:///database/cyber_sentinel.db"
+
+models:
+  anomaly_path: "models/anomaly/isolation_forest.joblib"
+  classifier_path: "models/classifier/random_forest.joblib"
+  label_encoder_path: "models/classifier/label_encoder.joblib"
+  feature_list_path: "models/classifier/feature_list.joblib"
+  scaler_path: "models/anomaly/scaler.joblib"
+
+thresholds:
+  unique_ports_high: 20
+  unique_ports_critical: 40
+  failed_auth_high: 10
+  failed_auth_critical: 30
+  bytes_out_high: 10000000
+  bytes_out_critical: 100000000
+  unique_peers_high: 8
+  unique_peers_critical: 15
+  connection_rate_high: 30
+  connection_rate_critical: 60

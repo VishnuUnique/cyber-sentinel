@@ -1,0 +1,2001 @@
+index,label
+0,Normal
+1,Normal
+2,Data Exfiltration
+3,Normal
+4,Normal
+5,Normal
+6,Data Exfiltration
+7,Port Scan
+8,Normal
+9,Normal
+10,Normal
+11,Data Exfiltration
+12,Normal
+13,Normal
+14,Lateral Movement
+15,Data Exfiltration
+16,Normal
+17,Lateral Movement
+18,Normal
+19,Data Exfiltration
+20,Normal
+21,Normal
+22,Normal
+23,Normal
+24,Normal
+25,Port Scan
+26,Normal
+27,Normal
+28,Lateral Movement
+29,Normal
+30,Normal
+31,Normal
+32,Lateral Movement
+33,Port Scan
+34,Normal
+35,Normal
+36,Normal
+37,Port Scan
+38,Normal
+39,Normal
+40,Normal
+41,Lateral Movement
+42,Normal
+43,Lateral Movement
+44,Data Exfiltration
+45,Port Scan
+46,Port Scan
+47,Brute Force
+48,Lateral Movement
+49,Port Scan
+50,Port Scan
+51,Normal
+52,Normal
+53,Brute Force
+54,Port Scan
+55,Normal
+56,Normal
+57,Data Exfiltration
+58,Normal
+59,Brute Force
+60,Normal
+61,Normal
+62,Port Scan
+63,Lateral Movement
+64,Port Scan
+65,Lateral Movement
+66,Brute Force
+67,Normal
+68,Normal
+69,Normal
+70,Normal
+71,Normal
+72,Data Exfiltration
+73,Data Exfiltration
+74,Normal
+75,Normal
+76,Normal
+77,Normal
+78,Lateral Movement
+79,Normal
+80,Lateral Movement
+81,Normal
+82,Normal
+83,Lateral Movement
+84,Normal
+85,Brute Force
+86,Normal
+87,Normal
+88,Normal
+89,Normal
+90,Lateral Movement
+91,Normal
+92,Normal
+93,Normal
+94,Brute Force
+95,Normal
+96,Brute Force
+97,Normal
+98,Lateral Movement
+99,Normal
+100,Normal
+101,Normal
+102,Normal
+103,Normal
+104,Normal
+105,Normal
+106,Data Exfiltration
+107,Brute Force
+108,Normal
+109,Normal
+110,Normal
+111,Normal
+112,Normal
+113,Normal
+114,Data Exfiltration
+115,Lateral Movement
+116,Normal
+117,Lateral Movement
+118,Normal
+119,Normal
+120,Brute Force
+121,Data Exfiltration
+122,Normal
+123,Normal
+124,Normal
+125,Lateral Movement
+126,Brute Force
+127,Data Exfiltration
+128,Data Exfiltration
+129,Data Exfiltration
+130,Brute Force
+131,Normal
+132,Brute Force
+133,Normal
+134,Data Exfiltration
+135,Normal
+136,Port Scan
+137,Lateral Movement
+138,Normal
+139,Lateral Movement
+140,Data Exfiltration
+141,Brute Force
+142,Normal
+143,Port Scan
+144,Data Exfiltration
+145,Normal
+146,Normal
+147,Port Scan
+148,Normal
+149,Normal
+150,Lateral Movement
+151,Port Scan
+152,Lateral Movement
+153,Normal
+154,Normal
+155,Data Exfiltration
+156,Lateral Movement
+157,Port Scan
+158,Normal
+159,Normal
+160,Normal
+161,Normal
+162,Lateral Movement
+163,Normal
+164,Normal
+165,Port Scan
+166,Normal
+167,Normal
+168,Data Exfiltration
+169,Data Exfiltration
+170,Normal
+171,Data Exfiltration
+172,Normal
+173,Normal
+174,Data Exfiltration
+175,Normal
+176,Lateral Movement
+177,Normal
+178,Port Scan
+179,Normal
+180,Data Exfiltration
+181,Normal
+182,Port Scan
+183,Normal
+184,Normal
+185,Normal
+186,Port Scan
+187,Normal
+188,Normal
+189,Port Scan
+190,Normal
+191,Normal
+192,Normal
+193,Normal
+194,Normal
+195,Brute Force
+196,Normal
+197,Normal
+198,Data Exfiltration
+199,Normal
+200,Brute Force
+201,Normal
+202,Lateral Movement
+203,Normal
+204,Normal
+205,Brute Force
+206,Normal
+207,Normal
+208,Normal
+209,Lateral Movement
+210,Port Scan
+211,Normal
+212,Normal
+213,Normal
+214,Port Scan
+215,Lateral Movement
+216,Normal
+217,Normal
+218,Port Scan
+219,Normal
+220,Normal
+221,Normal
+222,Normal
+223,Normal
+224,Normal
+225,Normal
+226,Data Exfiltration
+227,Port Scan
+228,Normal
+229,Brute Force
+230,Normal
+231,Brute Force
+232,Normal
+233,Normal
+234,Brute Force
+235,Normal
+236,Normal
+237,Port Scan
+238,Brute Force
+239,Brute Force
+240,Brute Force
+241,Normal
+242,Normal
+243,Normal
+244,Data Exfiltration
+245,Lateral Movement
+246,Normal
+247,Normal
+248,Normal
+249,Normal
+250,Normal
+251,Data Exfiltration
+252,Port Scan
+253,Normal
+254,Normal
+255,Normal
+256,Normal
+257,Data Exfiltration
+258,Lateral Movement
+259,Normal
+260,Lateral Movement
+261,Normal
+262,Normal
+263,Normal
+264,Normal
+265,Normal
+266,Normal
+267,Lateral Movement
+268,Brute Force
+269,Lateral Movement
+270,Brute Force
+271,Normal
+272,Normal
+273,Normal
+274,Normal
+275,Data Exfiltration
+276,Normal
+277,Normal
+278,Brute Force
+279,Normal
+280,Data Exfiltration
+281,Lateral Movement
+282,Data Exfiltration
+283,Normal
+284,Brute Force
+285,Lateral Movement
+286,Normal
+287,Normal
+288,Brute Force
+289,Lateral Movement
+290,Normal
+291,Normal
+292,Normal
+293,Data Exfiltration
+294,Lateral Movement
+295,Port Scan
+296,Normal
+297,Port Scan
+298,Normal
+299,Data Exfiltration
+300,Normal
+301,Normal
+302,Normal
+303,Normal
+304,Normal
+305,Normal
+306,Port Scan
+307,Port Scan
+308,Data Exfiltration
+309,Normal
+310,Brute Force
+311,Normal
+312,Normal
+313,Normal
+314,Normal
+315,Normal
+316,Port Scan
+317,Port Scan
+318,Normal
+319,Normal
+320,Normal
+321,Data Exfiltration
+322,Port Scan
+323,Normal
+324,Lateral Movement
+325,Normal
+326,Normal
+327,Normal
+328,Normal
+329,Normal
+330,Normal
+331,Normal
+332,Normal
+333,Normal
+334,Normal
+335,Normal
+336,Normal
+337,Lateral Movement
+338,Lateral Movement
+339,Normal
+340,Normal
+341,Normal
+342,Normal
+343,Port Scan
+344,Normal
+345,Normal
+346,Normal
+347,Lateral Movement
+348,Port Scan
+349,Normal
+350,Normal
+351,Normal
+352,Normal
+353,Normal
+354,Normal
+355,Normal
+356,Normal
+357,Brute Force
+358,Normal
+359,Normal
+360,Normal
+361,Normal
+362,Data Exfiltration
+363,Normal
+364,Data Exfiltration
+365,Normal
+366,Lateral Movement
+367,Normal
+368,Port Scan
+369,Port Scan
+370,Port Scan
+371,Normal
+372,Normal
+373,Normal
+374,Normal
+375,Normal
+376,Normal
+377,Lateral Movement
+378,Brute Force
+379,Port Scan
+380,Normal
+381,Port Scan
+382,Normal
+383,Normal
+384,Normal
+385,Normal
+386,Data Exfiltration
+387,Brute Force
+388,Lateral Movement
+389,Normal
+390,Normal
+391,Data Exfiltration
+392,Brute Force
+393,Normal
+394,Data Exfiltration
+395,Normal
+396,Brute Force
+397,Brute Force
+398,Data Exfiltration
+399,Lateral Movement
+400,Normal
+401,Normal
+402,Normal
+403,Brute Force
+404,Normal
+405,Data Exfiltration
+406,Normal
+407,Normal
+408,Normal
+409,Normal
+410,Normal
+411,Normal
+412,Normal
+413,Port Scan
+414,Data Exfiltration
+415,Brute Force
+416,Normal
+417,Normal
+418,Normal
+419,Normal
+420,Normal
+421,Normal
+422,Normal
+423,Brute Force
+424,Normal
+425,Normal
+426,Normal
+427,Normal
+428,Normal
+429,Normal
+430,Normal
+431,Data Exfiltration
+432,Data Exfiltration
+433,Port Scan
+434,Lateral Movement
+435,Normal
+436,Normal
+437,Data Exfiltration
+438,Normal
+439,Normal
+440,Normal
+441,Normal
+442,Normal
+443,Normal
+444,Normal
+445,Normal
+446,Data Exfiltration
+447,Normal
+448,Normal
+449,Port Scan
+450,Lateral Movement
+451,Lateral Movement
+452,Brute Force
+453,Normal
+454,Brute Force
+455,Normal
+456,Lateral Movement
+457,Data Exfiltration
+458,Normal
+459,Normal
+460,Normal
+461,Normal
+462,Normal
+463,Port Scan
+464,Normal
+465,Port Scan
+466,Lateral Movement
+467,Data Exfiltration
+468,Normal
+469,Brute Force
+470,Normal
+471,Port Scan
+472,Normal
+473,Normal
+474,Normal
+475,Lateral Movement
+476,Lateral Movement
+477,Normal
+478,Normal
+479,Normal
+480,Normal
+481,Normal
+482,Brute Force
+483,Normal
+484,Normal
+485,Brute Force
+486,Normal
+487,Normal
+488,Normal
+489,Normal
+490,Data Exfiltration
+491,Normal
+492,Data Exfiltration
+493,Normal
+494,Lateral Movement
+495,Normal
+496,Port Scan
+497,Normal
+498,Normal
+499,Lateral Movement
+500,Lateral Movement
+501,Normal
+502,Normal
+503,Port Scan
+504,Lateral Movement
+505,Data Exfiltration
+506,Data Exfiltration
+507,Data Exfiltration
+508,Normal
+509,Lateral Movement
+510,Normal
+511,Normal
+512,Normal
+513,Brute Force
+514,Normal
+515,Normal
+516,Normal
+517,Normal
+518,Normal
+519,Normal
+520,Normal
+521,Normal
+522,Normal
+523,Normal
+524,Normal
+525,Port Scan
+526,Brute Force
+527,Normal
+528,Normal
+529,Lateral Movement
+530,Data Exfiltration
+531,Normal
+532,Brute Force
+533,Port Scan
+534,Port Scan
+535,Normal
+536,Normal
+537,Normal
+538,Lateral Movement
+539,Data Exfiltration
+540,Normal
+541,Normal
+542,Lateral Movement
+543,Normal
+544,Brute Force
+545,Normal
+546,Normal
+547,Normal
+548,Normal
+549,Data Exfiltration
+550,Normal
+551,Normal
+552,Normal
+553,Normal
+554,Brute Force
+555,Normal
+556,Data Exfiltration
+557,Normal
+558,Normal
+559,Normal
+560,Lateral Movement
+561,Data Exfiltration
+562,Normal
+563,Lateral Movement
+564,Brute Force
+565,Lateral Movement
+566,Normal
+567,Lateral Movement
+568,Normal
+569,Normal
+570,Brute Force
+571,Lateral Movement
+572,Normal
+573,Normal
+574,Normal
+575,Normal
+576,Port Scan
+577,Data Exfiltration
+578,Normal
+579,Brute Force
+580,Normal
+581,Normal
+582,Normal
+583,Lateral Movement
+584,Normal
+585,Port Scan
+586,Normal
+587,Normal
+588,Normal
+589,Normal
+590,Port Scan
+591,Normal
+592,Normal
+593,Normal
+594,Normal
+595,Normal
+596,Brute Force
+597,Normal
+598,Normal
+599,Normal
+600,Normal
+601,Normal
+602,Normal
+603,Normal
+604,Lateral Movement
+605,Normal
+606,Normal
+607,Normal
+608,Normal
+609,Brute Force
+610,Normal
+611,Normal
+612,Normal
+613,Lateral Movement
+614,Port Scan
+615,Normal
+616,Normal
+617,Normal
+618,Port Scan
+619,Normal
+620,Normal
+621,Port Scan
+622,Normal
+623,Port Scan
+624,Brute Force
+625,Lateral Movement
+626,Normal
+627,Normal
+628,Normal
+629,Brute Force
+630,Port Scan
+631,Normal
+632,Normal
+633,Data Exfiltration
+634,Lateral Movement
+635,Normal
+636,Port Scan
+637,Normal
+638,Data Exfiltration
+639,Lateral Movement
+640,Normal
+641,Normal
+642,Normal
+643,Normal
+644,Lateral Movement
+645,Brute Force
+646,Lateral Movement
+647,Normal
+648,Normal
+649,Lateral Movement
+650,Normal
+651,Data Exfiltration
+652,Normal
+653,Brute Force
+654,Normal
+655,Normal
+656,Normal
+657,Port Scan
+658,Data Exfiltration
+659,Normal
+660,Normal
+661,Lateral Movement
+662,Normal
+663,Normal
+664,Normal
+665,Normal
+666,Normal
+667,Normal
+668,Normal
+669,Normal
+670,Normal
+671,Normal
+672,Brute Force
+673,Normal
+674,Normal
+675,Data Exfiltration
+676,Lateral Movement
+677,Normal
+678,Port Scan
+679,Normal
+680,Normal
+681,Brute Force
+682,Normal
+683,Normal
+684,Normal
+685,Normal
+686,Normal
+687,Data Exfiltration
+688,Brute Force
+689,Normal
+690,Brute Force
+691,Lateral Movement
+692,Normal
+693,Port Scan
+694,Data Exfiltration
+695,Normal
+696,Brute Force
+697,Normal
+698,Lateral Movement
+699,Normal
+700,Normal
+701,Data Exfiltration
+702,Normal
+703,Normal
+704,Normal
+705,Normal
+706,Brute Force
+707,Normal
+708,Port Scan
+709,Normal
+710,Data Exfiltration
+711,Lateral Movement
+712,Normal
+713,Normal
+714,Normal
+715,Data Exfiltration
+716,Normal
+717,Brute Force
+718,Brute Force
+719,Lateral Movement
+720,Normal
+721,Data Exfiltration
+722,Normal
+723,Normal
+724,Normal
+725,Brute Force
+726,Normal
+727,Normal
+728,Normal
+729,Port Scan
+730,Normal
+731,Normal
+732,Normal
+733,Normal
+734,Normal
+735,Normal
+736,Normal
+737,Normal
+738,Normal
+739,Normal
+740,Normal
+741,Brute Force
+742,Normal
+743,Data Exfiltration
+744,Lateral Movement
+745,Data Exfiltration
+746,Normal
+747,Normal
+748,Normal
+749,Normal
+750,Normal
+751,Lateral Movement
+752,Lateral Movement
+753,Normal
+754,Normal
+755,Normal
+756,Normal
+757,Data Exfiltration
+758,Normal
+759,Normal
+760,Normal
+761,Data Exfiltration
+762,Lateral Movement
+763,Lateral Movement
+764,Lateral Movement
+765,Normal
+766,Normal
+767,Normal
+768,Normal
+769,Brute Force
+770,Data Exfiltration
+771,Port Scan
+772,Brute Force
+773,Normal
+774,Normal
+775,Data Exfiltration
+776,Normal
+777,Port Scan
+778,Lateral Movement
+779,Normal
+780,Brute Force
+781,Data Exfiltration
+782,Normal
+783,Brute Force
+784,Normal
+785,Normal
+786,Normal
+787,Lateral Movement
+788,Normal
+789,Brute Force
+790,Normal
+791,Normal
+792,Lateral Movement
+793,Normal
+794,Normal
+795,Brute Force
+796,Port Scan
+797,Port Scan
+798,Normal
+799,Normal
+800,Normal
+801,Normal
+802,Normal
+803,Normal
+804,Normal
+805,Port Scan
+806,Data Exfiltration
+807,Lateral Movement
+808,Normal
+809,Port Scan
+810,Brute Force
+811,Normal
+812,Normal
+813,Normal
+814,Normal
+815,Normal
+816,Data Exfiltration
+817,Normal
+818,Normal
+819,Brute Force
+820,Lateral Movement
+821,Data Exfiltration
+822,Normal
+823,Port Scan
+824,Normal
+825,Normal
+826,Normal
+827,Normal
+828,Lateral Movement
+829,Brute Force
+830,Data Exfiltration
+831,Normal
+832,Normal
+833,Data Exfiltration
+834,Port Scan
+835,Normal
+836,Brute Force
+837,Data Exfiltration
+838,Lateral Movement
+839,Normal
+840,Data Exfiltration
+841,Data Exfiltration
+842,Normal
+843,Normal
+844,Normal
+845,Normal
+846,Normal
+847,Data Exfiltration
+848,Normal
+849,Normal
+850,Normal
+851,Normal
+852,Normal
+853,Normal
+854,Port Scan
+855,Normal
+856,Brute Force
+857,Port Scan
+858,Normal
+859,Normal
+860,Normal
+861,Normal
+862,Normal
+863,Normal
+864,Normal
+865,Normal
+866,Normal
+867,Normal
+868,Brute Force
+869,Lateral Movement
+870,Normal
+871,Normal
+872,Normal
+873,Normal
+874,Normal
+875,Normal
+876,Normal
+877,Normal
+878,Data Exfiltration
+879,Normal
+880,Normal
+881,Data Exfiltration
+882,Normal
+883,Brute Force
+884,Brute Force
+885,Brute Force
+886,Brute Force
+887,Lateral Movement
+888,Brute Force
+889,Brute Force
+890,Normal
+891,Lateral Movement
+892,Port Scan
+893,Normal
+894,Normal
+895,Data Exfiltration
+896,Port Scan
+897,Normal
+898,Normal
+899,Data Exfiltration
+900,Normal
+901,Port Scan
+902,Normal
+903,Normal
+904,Lateral Movement
+905,Lateral Movement
+906,Port Scan
+907,Normal
+908,Brute Force
+909,Normal
+910,Normal
+911,Normal
+912,Normal
+913,Brute Force
+914,Data Exfiltration
+915,Port Scan
+916,Normal
+917,Normal
+918,Normal
+919,Data Exfiltration
+920,Normal
+921,Normal
+922,Normal
+923,Normal
+924,Normal
+925,Lateral Movement
+926,Normal
+927,Brute Force
+928,Normal
+929,Normal
+930,Normal
+931,Normal
+932,Normal
+933,Lateral Movement
+934,Normal
+935,Port Scan
+936,Normal
+937,Normal
+938,Normal
+939,Normal
+940,Normal
+941,Data Exfiltration
+942,Normal
+943,Normal
+944,Port Scan
+945,Port Scan
+946,Lateral Movement
+947,Brute Force
+948,Port Scan
+949,Normal
+950,Normal
+951,Normal
+952,Normal
+953,Port Scan
+954,Brute Force
+955,Normal
+956,Normal
+957,Data Exfiltration
+958,Normal
+959,Normal
+960,Normal
+961,Normal
+962,Brute Force
+963,Normal
+964,Normal
+965,Data Exfiltration
+966,Lateral Movement
+967,Normal
+968,Normal
+969,Brute Force
+970,Port Scan
+971,Normal
+972,Normal
+973,Normal
+974,Normal
+975,Port Scan
+976,Lateral Movement
+977,Normal
+978,Port Scan
+979,Lateral Movement
+980,Normal
+981,Normal
+982,Normal
+983,Data Exfiltration
+984,Normal
+985,Normal
+986,Normal
+987,Brute Force
+988,Normal
+989,Normal
+990,Normal
+991,Normal
+992,Normal
+993,Normal
+994,Normal
+995,Data Exfiltration
+996,Brute Force
+997,Port Scan
+998,Data Exfiltration
+999,Lateral Movement
+1000,Normal
+1001,Normal
+1002,Port Scan
+1003,Port Scan
+1004,Port Scan
+1005,Lateral Movement
+1006,Normal
+1007,Normal
+1008,Normal
+1009,Normal
+1010,Normal
+1011,Normal
+1012,Normal
+1013,Brute Force
+1014,Brute Force
+1015,Normal
+1016,Lateral Movement
+1017,Port Scan
+1018,Normal
+1019,Lateral Movement
+1020,Data Exfiltration
+1021,Normal
+1022,Normal
+1023,Lateral Movement
+1024,Normal
+1025,Lateral Movement
+1026,Lateral Movement
+1027,Lateral Movement
+1028,Normal
+1029,Data Exfiltration
+1030,Normal
+1031,Brute Force
+1032,Normal
+1033,Normal
+1034,Port Scan
+1035,Brute Force
+1036,Normal
+1037,Normal
+1038,Normal
+1039,Data Exfiltration
+1040,Normal
+1041,Data Exfiltration
+1042,Brute Force
+1043,Data Exfiltration
+1044,Port Scan
+1045,Normal
+1046,Normal
+1047,Lateral Movement
+1048,Normal
+1049,Normal
+1050,Brute Force
+1051,Normal
+1052,Normal
+1053,Normal
+1054,Normal
+1055,Brute Force
+1056,Normal
+1057,Normal
+1058,Brute Force
+1059,Data Exfiltration
+1060,Normal
+1061,Normal
+1062,Data Exfiltration
+1063,Port Scan
+1064,Brute Force
+1065,Normal
+1066,Normal
+1067,Lateral Movement
+1068,Normal
+1069,Data Exfiltration
+1070,Normal
+1071,Brute Force
+1072,Normal
+1073,Brute Force
+1074,Brute Force
+1075,Normal
+1076,Normal
+1077,Data Exfiltration
+1078,Normal
+1079,Normal
+1080,Normal
+1081,Normal
+1082,Brute Force
+1083,Normal
+1084,Normal
+1085,Brute Force
+1086,Brute Force
+1087,Normal
+1088,Lateral Movement
+1089,Data Exfiltration
+1090,Data Exfiltration
+1091,Normal
+1092,Normal
+1093,Normal
+1094,Normal
+1095,Normal
+1096,Normal
+1097,Port Scan
+1098,Normal
+1099,Data Exfiltration
+1100,Normal
+1101,Lateral Movement
+1102,Normal
+1103,Normal
+1104,Normal
+1105,Normal
+1106,Normal
+1107,Data Exfiltration
+1108,Lateral Movement
+1109,Normal
+1110,Data Exfiltration
+1111,Brute Force
+1112,Normal
+1113,Normal
+1114,Brute Force
+1115,Port Scan
+1116,Normal
+1117,Normal
+1118,Normal
+1119,Normal
+1120,Normal
+1121,Port Scan
+1122,Normal
+1123,Normal
+1124,Lateral Movement
+1125,Lateral Movement
+1126,Normal
+1127,Normal
+1128,Port Scan
+1129,Normal
+1130,Normal
+1131,Normal
+1132,Normal
+1133,Normal
+1134,Port Scan
+1135,Normal
+1136,Port Scan
+1137,Port Scan
+1138,Normal
+1139,Normal
+1140,Brute Force
+1141,Lateral Movement
+1142,Port Scan
+1143,Normal
+1144,Port Scan
+1145,Lateral Movement
+1146,Normal
+1147,Normal
+1148,Normal
+1149,Normal
+1150,Normal
+1151,Normal
+1152,Normal
+1153,Port Scan
+1154,Normal
+1155,Normal
+1156,Lateral Movement
+1157,Normal
+1158,Normal
+1159,Brute Force
+1160,Data Exfiltration
+1161,Port Scan
+1162,Normal
+1163,Port Scan
+1164,Normal
+1165,Data Exfiltration
+1166,Normal
+1167,Brute Force
+1168,Normal
+1169,Normal
+1170,Normal
+1171,Lateral Movement
+1172,Normal
+1173,Normal
+1174,Port Scan
+1175,Normal
+1176,Normal
+1177,Port Scan
+1178,Normal
+1179,Brute Force
+1180,Normal
+1181,Lateral Movement
+1182,Normal
+1183,Data Exfiltration
+1184,Normal
+1185,Lateral Movement
+1186,Normal
+1187,Brute Force
+1188,Normal
+1189,Data Exfiltration
+1190,Normal
+1191,Normal
+1192,Port Scan
+1193,Normal
+1194,Normal
+1195,Normal
+1196,Normal
+1197,Data Exfiltration
+1198,Data Exfiltration
+1199,Data Exfiltration
+1200,Lateral Movement
+1201,Normal
+1202,Port Scan
+1203,Port Scan
+1204,Brute Force
+1205,Data Exfiltration
+1206,Normal
+1207,Normal
+1208,Normal
+1209,Normal
+1210,Normal
+1211,Normal
+1212,Normal
+1213,Brute Force
+1214,Normal
+1215,Port Scan
+1216,Port Scan
+1217,Brute Force
+1218,Normal
+1219,Data Exfiltration
+1220,Brute Force
+1221,Normal
+1222,Normal
+1223,Port Scan
+1224,Normal
+1225,Normal
+1226,Normal
+1227,Normal
+1228,Normal
+1229,Normal
+1230,Data Exfiltration
+1231,Normal
+1232,Port Scan
+1233,Normal
+1234,Data Exfiltration
+1235,Port Scan
+1236,Brute Force
+1237,Normal
+1238,Normal
+1239,Data Exfiltration
+1240,Lateral Movement
+1241,Normal
+1242,Brute Force
+1243,Normal
+1244,Lateral Movement
+1245,Normal
+1246,Port Scan
+1247,Normal
+1248,Normal
+1249,Normal
+1250,Port Scan
+1251,Normal
+1252,Normal
+1253,Normal
+1254,Normal
+1255,Normal
+1256,Normal
+1257,Normal
+1258,Normal
+1259,Normal
+1260,Port Scan
+1261,Lateral Movement
+1262,Normal
+1263,Normal
+1264,Port Scan
+1265,Brute Force
+1266,Normal
+1267,Data Exfiltration
+1268,Port Scan
+1269,Normal
+1270,Data Exfiltration
+1271,Normal
+1272,Data Exfiltration
+1273,Normal
+1274,Normal
+1275,Data Exfiltration
+1276,Lateral Movement
+1277,Normal
+1278,Brute Force
+1279,Normal
+1280,Lateral Movement
+1281,Port Scan
+1282,Normal
+1283,Normal
+1284,Port Scan
+1285,Port Scan
+1286,Data Exfiltration
+1287,Brute Force
+1288,Lateral Movement
+1289,Normal
+1290,Normal
+1291,Normal
+1292,Normal
+1293,Normal
+1294,Port Scan
+1295,Brute Force
+1296,Normal
+1297,Brute Force
+1298,Normal
+1299,Brute Force
+1300,Normal
+1301,Brute Force
+1302,Normal
+1303,Normal
+1304,Normal
+1305,Brute Force
+1306,Normal
+1307,Data Exfiltration
+1308,Normal
+1309,Normal
+1310,Port Scan
+1311,Normal
+1312,Brute Force
+1313,Brute Force
+1314,Normal
+1315,Normal
+1316,Data Exfiltration
+1317,Port Scan
+1318,Brute Force
+1319,Port Scan
+1320,Normal
+1321,Lateral Movement
+1322,Normal
+1323,Port Scan
+1324,Normal
+1325,Normal
+1326,Normal
+1327,Normal
+1328,Normal
+1329,Normal
+1330,Brute Force
+1331,Normal
+1332,Normal
+1333,Normal
+1334,Data Exfiltration
+1335,Normal
+1336,Brute Force
+1337,Lateral Movement
+1338,Normal
+1339,Brute Force
+1340,Port Scan
+1341,Normal
+1342,Brute Force
+1343,Lateral Movement
+1344,Normal
+1345,Normal
+1346,Data Exfiltration
+1347,Normal
+1348,Normal
+1349,Port Scan
+1350,Lateral Movement
+1351,Normal
+1352,Normal
+1353,Port Scan
+1354,Normal
+1355,Brute Force
+1356,Port Scan
+1357,Normal
+1358,Normal
+1359,Brute Force
+1360,Normal
+1361,Normal
+1362,Brute Force
+1363,Normal
+1364,Normal
+1365,Normal
+1366,Lateral Movement
+1367,Normal
+1368,Normal
+1369,Lateral Movement
+1370,Data Exfiltration
+1371,Normal
+1372,Brute Force
+1373,Normal
+1374,Normal
+1375,Normal
+1376,Lateral Movement
+1377,Normal
+1378,Normal
+1379,Normal
+1380,Normal
+1381,Normal
+1382,Lateral Movement
+1383,Normal
+1384,Normal
+1385,Brute Force
+1386,Data Exfiltration
+1387,Normal
+1388,Normal
+1389,Normal
+1390,Port Scan
+1391,Normal
+1392,Normal
+1393,Lateral Movement
+1394,Normal
+1395,Lateral Movement
+1396,Normal
+1397,Lateral Movement
+1398,Normal
+1399,Brute Force
+1400,Normal
+1401,Normal
+1402,Brute Force
+1403,Normal
+1404,Normal
+1405,Normal
+1406,Normal
+1407,Brute Force
+1408,Normal
+1409,Port Scan
+1410,Normal
+1411,Normal
+1412,Normal
+1413,Normal
+1414,Normal
+1415,Normal
+1416,Normal
+1417,Normal
+1418,Port Scan
+1419,Normal
+1420,Normal
+1421,Port Scan
+1422,Brute Force
+1423,Normal
+1424,Data Exfiltration
+1425,Normal
+1426,Normal
+1427,Brute Force
+1428,Normal
+1429,Lateral Movement
+1430,Normal
+1431,Normal
+1432,Normal
+1433,Normal
+1434,Normal
+1435,Normal
+1436,Normal
+1437,Normal
+1438,Normal
+1439,Normal
+1440,Normal
+1441,Normal
+1442,Normal
+1443,Normal
+1444,Normal
+1445,Normal
+1446,Port Scan
+1447,Normal
+1448,Data Exfiltration
+1449,Normal
+1450,Normal
+1451,Normal
+1452,Data Exfiltration
+1453,Lateral Movement
+1454,Data Exfiltration
+1455,Normal
+1456,Lateral Movement
+1457,Normal
+1458,Normal
+1459,Port Scan
+1460,Normal
+1461,Data Exfiltration
+1462,Normal
+1463,Normal
+1464,Brute Force
+1465,Normal
+1466,Port Scan
+1467,Data Exfiltration
+1468,Port Scan
+1469,Normal
+1470,Lateral Movement
+1471,Normal
+1472,Normal
+1473,Brute Force
+1474,Normal
+1475,Normal
+1476,Data Exfiltration
+1477,Normal
+1478,Port Scan
+1479,Normal
+1480,Normal
+1481,Normal
+1482,Normal
+1483,Normal
+1484,Normal
+1485,Port Scan
+1486,Lateral Movement
+1487,Lateral Movement
+1488,Normal
+1489,Normal
+1490,Port Scan
+1491,Normal
+1492,Lateral Movement
+1493,Normal
+1494,Normal
+1495,Normal
+1496,Normal
+1497,Brute Force
+1498,Normal
+1499,Lateral Movement
+1500,Normal
+1501,Normal
+1502,Normal
+1503,Lateral Movement
+1504,Lateral Movement
+1505,Port Scan
+1506,Normal
+1507,Normal
+1508,Normal
+1509,Port Scan
+1510,Brute Force
+1511,Normal
+1512,Lateral Movement
+1513,Normal
+1514,Normal
+1515,Normal
+1516,Normal
+1517,Data Exfiltration
+1518,Data Exfiltration
+1519,Data Exfiltration
+1520,Port Scan
+1521,Normal
+1522,Normal
+1523,Normal
+1524,Normal
+1525,Normal
+1526,Normal
+1527,Lateral Movement
+1528,Normal
+1529,Data Exfiltration
+1530,Normal
+1531,Lateral Movement
+1532,Lateral Movement
+1533,Normal
+1534,Port Scan
+1535,Normal
+1536,Normal
+1537,Normal
+1538,Normal
+1539,Normal
+1540,Data Exfiltration
+1541,Normal
+1542,Data Exfiltration
+1543,Normal
+1544,Lateral Movement
+1545,Normal
+1546,Port Scan
+1547,Normal
+1548,Normal
+1549,Normal
+1550,Normal
+1551,Normal
+1552,Normal
+1553,Normal
+1554,Normal
+1555,Data Exfiltration
+1556,Normal
+1557,Normal
+1558,Normal
+1559,Data Exfiltration
+1560,Lateral Movement
+1561,Normal
+1562,Brute Force
+1563,Port Scan
+1564,Normal
+1565,Normal
+1566,Normal
+1567,Data Exfiltration
+1568,Normal
+1569,Data Exfiltration
+1570,Normal
+1571,Port Scan
+1572,Data Exfiltration
+1573,Lateral Movement
+1574,Normal
+1575,Lateral Movement
+1576,Normal
+1577,Normal
+1578,Normal
+1579,Normal
+1580,Port Scan
+1581,Data Exfiltration
+1582,Lateral Movement
+1583,Port Scan
+1584,Normal
+1585,Normal
+1586,Lateral Movement
+1587,Port Scan
+1588,Normal
+1589,Normal
+1590,Normal
+1591,Normal
+1592,Normal
+1593,Normal
+1594,Port Scan
+1595,Normal
+1596,Brute Force
+1597,Normal
+1598,Lateral Movement
+1599,Port Scan
+1600,Lateral Movement
+1601,Normal
+1602,Data Exfiltration
+1603,Normal
+1604,Normal
+1605,Brute Force
+1606,Lateral Movement
+1607,Port Scan
+1608,Normal
+1609,Data Exfiltration
+1610,Normal
+1611,Port Scan
+1612,Normal
+1613,Port Scan
+1614,Port Scan
+1615,Port Scan
+1616,Normal
+1617,Normal
+1618,Data Exfiltration
+1619,Data Exfiltration
+1620,Normal
+1621,Brute Force
+1622,Normal
+1623,Normal
+1624,Normal
+1625,Brute Force
+1626,Normal
+1627,Normal
+1628,Lateral Movement
+1629,Normal
+1630,Normal
+1631,Brute Force
+1632,Normal
+1633,Normal
+1634,Port Scan
+1635,Normal
+1636,Normal
+1637,Normal
+1638,Normal
+1639,Normal
+1640,Brute Force
+1641,Port Scan
+1642,Normal
+1643,Normal
+1644,Normal
+1645,Normal
+1646,Normal
+1647,Data Exfiltration
+1648,Brute Force
+1649,Normal
+1650,Lateral Movement
+1651,Lateral Movement
+1652,Normal
+1653,Lateral Movement
+1654,Lateral Movement
+1655,Data Exfiltration
+1656,Normal
+1657,Normal
+1658,Normal
+1659,Data Exfiltration
+1660,Data Exfiltration
+1661,Port Scan
+1662,Normal
+1663,Normal
+1664,Normal
+1665,Brute Force
+1666,Data Exfiltration
+1667,Data Exfiltration
+1668,Normal
+1669,Normal
+1670,Normal
+1671,Normal
+1672,Normal
+1673,Normal
+1674,Data Exfiltration
+1675,Normal
+1676,Normal
+1677,Normal
+1678,Lateral Movement
+1679,Normal
+1680,Normal
+1681,Normal
+1682,Normal
+1683,Normal
+1684,Normal
+1685,Brute Force
+1686,Port Scan
+1687,Port Scan
+1688,Brute Force
+1689,Data Exfiltration
+1690,Port Scan
+1691,Brute Force
+1692,Port Scan
+1693,Port Scan
+1694,Data Exfiltration
+1695,Normal
+1696,Port Scan
+1697,Data Exfiltration
+1698,Normal
+1699,Lateral Movement
+1700,Normal
+1701,Port Scan
+1702,Brute Force
+1703,Normal
+1704,Port Scan
+1705,Port Scan
+1706,Normal
+1707,Brute Force
+1708,Port Scan
+1709,Brute Force
+1710,Normal
+1711,Normal
+1712,Lateral Movement
+1713,Normal
+1714,Data Exfiltration
+1715,Normal
+1716,Brute Force
+1717,Normal
+1718,Normal
+1719,Normal
+1720,Normal
+1721,Normal
+1722,Lateral Movement
+1723,Normal
+1724,Brute Force
+1725,Normal
+1726,Normal
+1727,Normal
+1728,Normal
+1729,Normal
+1730,Lateral Movement
+1731,Port Scan
+1732,Data Exfiltration
+1733,Brute Force
+1734,Brute Force
+1735,Data Exfiltration
+1736,Normal
+1737,Lateral Movement
+1738,Normal
+1739,Normal
+1740,Normal
+1741,Brute Force
+1742,Port Scan
+1743,Normal
+1744,Port Scan
+1745,Normal
+1746,Normal
+1747,Data Exfiltration
+1748,Data Exfiltration
+1749,Normal
+1750,Normal
+1751,Brute Force
+1752,Lateral Movement
+1753,Port Scan
+1754,Normal
+1755,Data Exfiltration
+1756,Normal
+1757,Normal
+1758,Normal
+1759,Brute Force
+1760,Normal
+1761,Normal
+1762,Lateral Movement
+1763,Normal
+1764,Normal
+1765,Normal
+1766,Normal
+1767,Normal
+1768,Normal
+1769,Brute Force
+1770,Normal
+1771,Data Exfiltration
+1772,Lateral Movement
+1773,Data Exfiltration
+1774,Normal
+1775,Port Scan
+1776,Normal
+1777,Port Scan
+1778,Normal
+1779,Data Exfiltration
+1780,Normal
+1781,Normal
+1782,Lateral Movement
+1783,Port Scan
+1784,Normal
+1785,Data Exfiltration
+1786,Normal
+1787,Normal
+1788,Normal
+1789,Normal
+1790,Normal
+1791,Normal
+1792,Lateral Movement
+1793,Normal
+1794,Normal
+1795,Normal
+1796,Normal
+1797,Normal
+1798,Brute Force
+1799,Normal
+1800,Normal
+1801,Normal
+1802,Brute Force
+1803,Normal
+1804,Normal
+1805,Normal
+1806,Brute Force
+1807,Normal
+1808,Normal
+1809,Normal
+1810,Brute Force
+1811,Lateral Movement
+1812,Lateral Movement
+1813,Normal
+1814,Port Scan
+1815,Data Exfiltration
+1816,Normal
+1817,Normal
+1818,Normal
+1819,Normal
+1820,Data Exfiltration
+1821,Normal
+1822,Normal
+1823,Lateral Movement
+1824,Normal
+1825,Normal
+1826,Normal
+1827,Lateral Movement
+1828,Brute Force
+1829,Normal
+1830,Normal
+1831,Brute Force
+1832,Normal
+1833,Normal
+1834,Brute Force
+1835,Normal
+1836,Normal
+1837,Brute Force
+1838,Lateral Movement
+1839,Normal
+1840,Normal
+1841,Normal
+1842,Normal
+1843,Normal
+1844,Data Exfiltration
+1845,Data Exfiltration
+1846,Brute Force
+1847,Normal
+1848,Port Scan
+1849,Normal
+1850,Lateral Movement
+1851,Normal
+1852,Brute Force
+1853,Data Exfiltration
+1854,Normal
+1855,Normal
+1856,Normal
+1857,Normal
+1858,Brute Force
+1859,Lateral Movement
+1860,Brute Force
+1861,Brute Force
+1862,Normal
+1863,Normal
+1864,Normal
+1865,Data Exfiltration
+1866,Normal
+1867,Normal
+1868,Normal
+1869,Normal
+1870,Normal
+1871,Normal
+1872,Normal
+1873,Normal
+1874,Normal
+1875,Port Scan
+1876,Port Scan
+1877,Normal
+1878,Normal
+1879,Brute Force
+1880,Lateral Movement
+1881,Normal
+1882,Normal
+1883,Normal
+1884,Brute Force
+1885,Normal
+1886,Port Scan
+1887,Data Exfiltration
+1888,Lateral Movement
+1889,Normal
+1890,Normal
+1891,Normal
+1892,Normal
+1893,Normal
+1894,Data Exfiltration
+1895,Normal
+1896,Normal
+1897,Normal
+1898,Normal
+1899,Normal
+1900,Brute Force
+1901,Port Scan
+1902,Normal
+1903,Lateral Movement
+1904,Normal
+1905,Lateral Movement
+1906,Normal
+1907,Port Scan
+1908,Normal
+1909,Normal
+1910,Normal
+1911,Data Exfiltration
+1912,Normal
+1913,Normal
+1914,Lateral Movement
+1915,Port Scan
+1916,Normal
+1917,Normal
+1918,Normal
+1919,Port Scan
+1920,Port Scan
+1921,Data Exfiltration
+1922,Normal
+1923,Data Exfiltration
+1924,Normal
+1925,Data Exfiltration
+1926,Brute Force
+1927,Normal
+1928,Port Scan
+1929,Lateral Movement
+1930,Normal
+1931,Brute Force
+1932,Normal
+1933,Normal
+1934,Brute Force
+1935,Port Scan
+1936,Normal
+1937,Normal
+1938,Normal
+1939,Brute Force
+1940,Normal
+1941,Normal
+1942,Data Exfiltration
+1943,Normal
+1944,Port Scan
+1945,Lateral Movement
+1946,Normal
+1947,Normal
+1948,Normal
+1949,Normal
+1950,Brute Force
+1951,Normal
+1952,Normal
+1953,Port Scan
+1954,Normal
+1955,Lateral Movement
+1956,Normal
+1957,Lateral Movement
+1958,Normal
+1959,Normal
+1960,Data Exfiltration
+1961,Normal
+1962,Normal
+1963,Data Exfiltration
+1964,Normal
+1965,Lateral Movement
+1966,Brute Force
+1967,Normal
+1968,Brute Force
+1969,Normal
+1970,Lateral Movement
+1971,Normal
+1972,Data Exfiltration
+1973,Normal
+1974,Normal
+1975,Normal
+1976,Normal
+1977,Data Exfiltration
+1978,Brute Force
+1979,Normal
+1980,Normal
+1981,Brute Force
+1982,Port Scan
+1983,Brute Force
+1984,Data Exfiltration
+1985,Normal
+1986,Data Exfiltration
+1987,Normal
+1988,Brute Force
+1989,Normal
+1990,Lateral Movement
+1991,Normal
+1992,Data Exfiltration
+1993,Normal
+1994,Normal
+1995,Normal
+1996,Port Scan
+1997,Normal
+1998,Normal
+1999,Normal

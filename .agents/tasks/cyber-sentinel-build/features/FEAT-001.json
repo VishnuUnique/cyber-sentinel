@@ -1,0 +1,53 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Project scaffold and core infrastructure: directory tree, root config files, package setup, settings module, utilities, database layer, and ingestion pipeline. This FEAT has no dependencies — it is the foundation every other FEAT builds on.",
+  "status": "pending",
+  "steps": [
+    "Create the full directory tree under cyber-sentinel/ with all required subdirectories. Use pathlib.Path.mkdir(parents=True, exist_ok=True) in a setup script or create them directly. Directories: config/, data/raw/, data/processed/, data/training/, data/samples/, models/anomaly/, models/classifier/, database/, logs/, scripts/, src/cyber_sentinel/api/, src/cyber_sentinel/cli/, src/cyber_sentinel/config/, src/cyber_sentinel/ingestion/, src/cyber_sentinel/features/, src/cyber_sentinel/detection/, src/cyber_sentinel/risk/, src/cyber_sentinel/database/, src/cyber_sentinel/dashboard/, src/cyber_sentinel/utils/, tests/, docs/, .agents/tasks/. Add .gitkeep to all empty leaf dirs (data/raw, data/processed, data/training, models/anomaly, models/classifier, database, logs).",
+
+    "Create pyproject.toml using setuptools backend with src/ layout. Set name='cyber-sentinel', version='1.0.0', requires-python='>=3.11'. In [tool.setuptools.packages.find] set where=['src']. List all runtime deps with pinned versions: fastapi==0.111.0, uvicorn[standard]==0.29.0, pydantic==2.7.1, pandas==2.2.2, numpy==1.26.4, scikit-learn==1.4.2, joblib==1.4.2, sqlalchemy==2.0.30, streamlit==1.35.0, plotly==5.22.0, typer==0.12.3, pyyaml==6.0.1, python-dotenv==1.0.1, rich==13.7.1, httpx==0.27.0. Add [project.optional-dependencies] dev = [pytest==8.2.0, pytest-asyncio==0.23.6, httpx==0.27.0]. Add [project.scripts] cyber-sentinel = 'cyber_sentinel.cli.main:app'.",
+
+    "Create requirements.txt listing same pinned packages (without dev extras) for Docker/pip install -r use.",
+
+    "Create .env.example with: CS_DB_PATH=./database/cyber_sentinel.db, CS_MODELS_DIR=./models, CS_LOG_LEVEL=INFO, CS_API_HOST=0.0.0.0, CS_API_PORT=8000, CS_MAX_RISK_THRESHOLD=70.",
+
+    "Create .gitignore covering __pycache__, *.pyc, *.pyo, *.pyd, .env, *.db, models/anomaly/*.joblib, models/classifier/*.joblib, logs/*.log, .venv/, dist/, build/, *.egg-info/, .pytest_cache/, htmlcov/.",
+
+    "Create LICENSE (MIT, year 2025, author Cyber Sentinel Contributors).",
+
+    "Create config/config.yaml with sections: app (name, version, log_level), database (path: ./database/cyber_sentinel.db), models (anomaly_path: ./models/anomaly/isolation_forest.joblib, classifier_path: ./models/classifier/random_forest.joblib, label_encoder_path: ./models/classifier/label_encoder.joblib, feature_names_path: ./models/classifier/feature_names.joblib), ingestion (window_size_seconds: 60, min_events_for_window: 3, noise_filter: {skip_dhcp: true, skip_arp: true, skip_multicast: true}), anomaly (contamination: 0.1, n_estimators: 100, random_state: 42), classifier (n_estimators: 200, max_depth: 15, random_state: 42), risk (weights: {anomaly: 0.40, classifier: 0.30, evidence: 0.30}, bands: {normal_max: 30, suspicious_max: 70}), api (host: 0.0.0.0, port: 8000, workers: 1).",
+
+    "Create config/policy.yaml with: max_risk_threshold: 70, alert_on_malicious: true, alert_on_suspicious: true, block_on_malicious: false, auto_response: {enabled: false, quarantine_threshold: 85}, notification: {enabled: false, webhook_url: null}.",
+
+    "Create src/cyber_sentinel/__init__.py exporting __version__ = '1.0.0' and a brief __doc__.",
+
+    "Create src/cyber_sentinel/config/__init__.py (empty, exports Settings). Create src/cyber_sentinel/config/settings.py using Pydantic BaseSettings (pydantic-settings) or a plain dataclass loaded from config.yaml + .env. Since pydantic-settings is not in the dep list, use a plain Python class: load config.yaml with PyYAML, overlay any CS_* env vars from python-dotenv. Expose typed attributes: db_path: Path, models_dir: Path, log_level: str, api_host: str, api_port: int, window_size_seconds: int, anomaly_contamination: float, etc. Provide a get_settings() function that returns a cached singleton. Use pathlib.Path throughout — resolve all paths relative to the project root (detected as Path(__file__).resolve().parents[3], i.e., 4 levels up from src/cyber_sentinel/config/settings.py).",
+
+    "Create src/cyber_sentinel/utils/logging.py: configure Python stdlib logging with a RichHandler (from rich.logging) and a rotating file handler writing to logs/cyber_sentinel.log. Expose get_logger(name: str) -> logging.Logger. On import, do NOT call basicConfig globally — call it only inside a setup_logging() function that cli/main.py and api/main.py call at startup.",
+
+    "Create src/cyber_sentinel/utils/security.py: validate_ip(ip: str) -> bool using Python's ipaddress module; sanitize_string(s: str) -> str (strip, truncate to 256 chars, remove null bytes); is_internal_ip(ip: str) -> bool (RFC-1918 ranges 10.x, 172.16-31.x, 192.168.x); is_multicast(ip: str) -> bool. Create src/cyber_sentinel/utils/__init__.py exporting these four functions.",
+
+    "Create src/cyber_sentinel/database/database.py: SQLAlchemy 2.0 engine + session factory. Use create_engine with check_same_thread=False for SQLite. Expose: engine, SessionLocal (sessionmaker), Base (DeclarativeBase), get_db() generator for FastAPI dependency injection, init_db() that calls Base.metadata.create_all(engine).",
+
+    "Create src/cyber_sentinel/database/models.py: define Alert ORM model with columns: id (Integer PK autoincrement), timestamp (DateTime, not null), source_ip (String 45), dest_ip (String 45), protocol (String 10), bytes (BigInteger), packets (Integer), event_type (String 50), anomaly_score (Float), classification (String 50), confidence (Float), risk_score (Float), risk_band (String 20), evidence (Text — JSON string), raw_event (Text — JSON string), status (String 20, default='open'), created_at (DateTime, server_default). Index on timestamp, source_ip, risk_band, status. Create src/cyber_sentinel/database/__init__.py exporting Alert, get_db, init_db, SessionLocal.",
+
+    "Create src/cyber_sentinel/database/repository.py: AlertRepository class with methods: create_alert(db, alert_data: dict) -> Alert; get_alert(db, alert_id: int) -> Alert | None; list_alerts(db, skip=0, limit=100, status=None, risk_band=None, classification=None, source_ip=None, start_time=None, end_time=None) -> list[Alert]; update_alert_status(db, alert_id: int, status: str) -> Alert | None; get_statistics(db) -> dict (total_alerts, by_band, by_classification, avg_risk, max_risk); get_top_sources(db, limit=10) -> list[dict]; get_risk_distribution(db) -> list[dict] (histogram buckets 0-10,10-20,...,90-100).",
+
+    "Create src/cyber_sentinel/ingestion/__init__.py, parser.py, validator.py, normalizer.py. parser.py: TelemetryParser class with parse_jsonl(source: str|Path|IO) -> Iterator[dict], parse_json(source) -> Iterator[dict], parse_csv(source) -> Iterator[dict], parse_auto(source) -> Iterator[dict] (auto-detect format by extension or sniffing). validator.py: TelemetryValidator class; validate(record: dict) -> tuple[bool, list[str]]; required fields: timestamp, source_ip, dest_ip, protocol; validate IPs with security.validate_ip; validate timestamp parseable as ISO-8601; apply noise filter (skip DHCP port 67/68, ARP event_type, multicast IPs) based on settings. normalizer.py: TelemetryNormalizer class; normalize(record: dict) -> dict: parse timestamp to UTC datetime, lowercase protocol, fill missing bytes/packets with 0, fill missing auth_status with None, fill missing src_port/dest_port with 0, fill missing event_type with 'flow', coerce all numeric fields to correct types. Create ingestion/__init__.py exporting TelemetryParser, TelemetryValidator, TelemetryNormalizer."
+  ],
+  "acceptance_criteria": [
+    "pip install -e .[dev] completes without errors",
+    "python -c 'from cyber_sentinel.config.settings import get_settings; s=get_settings(); print(s.db_path)' prints the db path without error",
+    "python -c 'from cyber_sentinel.database.database import init_db; init_db()' creates database/cyber_sentinel.db",
+    "python -c 'from cyber_sentinel.ingestion import TelemetryParser, TelemetryValidator, TelemetryNormalizer; print(\"OK\")' imports cleanly",
+    "python -c 'from cyber_sentinel.utils.security import validate_ip, is_internal_ip; assert validate_ip(\"10.0.0.1\"); assert is_internal_ip(\"192.168.1.1\"); print(\"OK\")'",
+    "pytest tests/test_ingestion.py -v passes all tests"
+  ],
+  "verification": [
+    "cd 'c:\\Users\\afsha\\PROJECT\\New folder\\cyber-sentinel' && pip install -e .[dev]",
+    "pytest tests/test_ingestion.py -v"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

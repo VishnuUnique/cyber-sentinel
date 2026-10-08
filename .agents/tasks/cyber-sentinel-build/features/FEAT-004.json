@@ -1,0 +1,42 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "FastAPI REST API, Typer CLI, Streamlit dashboard, and all test files. Depends on FEAT-001, FEAT-002, FEAT-003 (all core modules and trained models must exist). These three user-facing layers are bundled into one FEAT because they all depend on the same backend and have no inter-dependencies between them.",
+  "status": "pending",
+  "steps": [
+    "Create src/cyber_sentinel/api/main.py: create FastAPI app instance with title='Cyber Sentinel API', version='1.0.0', description. Add startup event handler that calls init_db() and loads DetectionPipeline. Add CORS middleware (allow_origins=['*'] for dev). Include router from routes.py. Main block: uvicorn.run(app, host=settings.api_host, port=settings.api_port).",
+
+    "Create src/cyber_sentinel/api/routes.py with all required endpoints. Use APIRouter. All DB operations use get_db() dependency. All request/response bodies use Pydantic v2 models (model_config = ConfigDict(...)). Endpoints: GET /health -> {status:'healthy',version,models_ready:bool,db_path:str}. POST /ingest body={events:list[dict]} -> ingests batch through full pipeline, saves to DB, returns {ingested:int,alerts:int,summary:dict}. POST /analyze body={events:list[dict]} -> runs pipeline WITHOUT saving to DB, returns full analysis result including features, anomaly_score, classification, risk_score, evidence, risk_band. POST /analyze/batch body={batches:list[list[dict]]} -> same but for multiple windows. GET /alerts?skip&limit&status&risk_band&classification&source_ip&start_time&end_time -> paginated list. GET /alerts/{id} -> single alert. PATCH /alerts/{id}/status body={status:str} -> update status to 'open'|'acknowledged'|'resolved'. GET /statistics -> total_alerts, by_band, by_classification, avg_risk, max_risk. GET /threats -> list unique threat types with counts. GET /sources/top?limit=10 -> top source IPs by alert count. GET /risk/distribution -> histogram buckets. GET /model/info -> model metadata (trained, path, anomaly contamination, classifier classes). Use HTTPException 404/422/500 appropriately. Create src/cyber_sentinel/api/__init__.py.",
+
+    "Create src/cyber_sentinel/cli/main.py: Typer app with these commands. All commands set up logging and load settings at start. Commands: generate-data (runs generate_demo_data logic inline or calls the script via subprocess, with --output-dir option defaulting to data/samples/). train (calls train pipeline, --data-dir, --model-dir options, prints rich table of results). ingest FILE_PATH (full pipeline ingestion from file, --format auto/json/jsonl/csv, --max-risk INTEGER exits 1 if breach, --dry-run skips DB save). analyze FILE_PATH (run analysis without saving, --output json/table, --max-risk). dashboard (launches Streamlit via subprocess: 'streamlit run src/cyber_sentinel/dashboard/app.py'). api (launches uvicorn via subprocess or directly). evaluate (runs evaluate_models.py logic inline). alerts (queries DB and prints table via rich, --status filter, --limit). All commands print helpful rich output. Use typer.echo for simple messages, rich.console for tables.",
+
+    "Create src/cyber_sentinel/dashboard/app.py: Streamlit app. Import streamlit as st, plotly.express as px, plotly.graph_objects as go. At top: st.set_page_config(title='Cyber Sentinel', layout='wide', page_icon='🛡️'). Load data from SQLite using AlertRepository (not mock data). Add auto-refresh with st.rerun() on a timer (use st.session_state). Sidebar: refresh interval slider, risk band filter, time range filter. Main layout: Row 1 (KPI metrics using st.metric): Total Events Analyzed, Total Alerts, Malicious count (delta from previous period), Suspicious count, Average Risk Score. Row 2 (2 columns): Threat Distribution pie chart (plotly), Risk Score Histogram (plotly). Row 3 (2 columns): Alerts Over Time line chart (plotly, grouped by hour), Top Source IPs bar chart (plotly). Row 4: Alert table with color coding — Malicious=red background, Suspicious=yellow, Normal=green. Use st.dataframe with column config. Row 5: Detail expander — when user clicks an alert row, show: raw event JSON, all features in a table, evidence list, risk gauge (plotly gauge chart going 0-100 with colored bands). Handle empty DB gracefully (show 'No data yet' placeholders). All chart titles include units.",
+
+    "Create tests/conftest.py with pytest fixtures: @pytest.fixture sample_records(): returns a list of 20 normalized dicts covering all event types (mix of normal, port_scan pattern, brute_force pattern). @pytest.fixture feature_extractor(): returns FeatureExtractor(). @pytest.fixture detection_pipeline(): returns DetectionPipeline() — this intentionally works even without trained models (graceful degradation). @pytest.fixture test_db(): creates an in-memory SQLite DB (using ':memory:'), calls init_db, yields SessionLocal(), cleans up. @pytest.fixture api_client(test_db): creates a FastAPI TestClient with the test_db overriding the get_db dependency. @pytest.fixture risk_scorer(): returns RiskScorer(). @pytest.fixture policy_engine(): creates PolicyEngine and loads a minimal policy dict directly (not from file) by monkey-patching or passing a dict.",
+
+    "Create tests/test_ingestion.py: test TelemetryParser.parse_jsonl with valid JSONL string. test TelemetryParser.parse_csv with valid CSV string. test TelemetryValidator accepts valid record, rejects missing required fields, rejects invalid IP, rejects multicast IP when noise_filter enabled. test TelemetryNormalizer normalizes timestamp to datetime, lowercases protocol, fills missing fields with defaults.",
+
+    "Create tests/test_features.py: test FeatureExtractor.extract returns dict with all 26 FEATURE_NAMES keys. test all values are floats. test connection_rate=total_events/window_seconds. test port_scan_indicator=1.0 when unique_dest_ports>=30. test exfil_indicator=1.0 when total_bytes>=1_000_000. test auth_failure_rate=0.8 for 8 failures and 2 successes. test extract_to_array returns shape (1,26). test FEATURE_NAMES has exactly 26 elements and no duplicates.",
+
+    "Create tests/test_detection.py: test AnomalyDetector.score returns 50.0 when not trained. test ThreatClassifier.predict returns ('Unknown',0.5) when not trained. test DetectionPipeline.analyze returns expected keys (features, anomaly_score, classification, confidence, is_anomaly). test anomaly_score is clamped to [0,100]. test pipeline works with single-record window (no crash).",
+
+    "Create tests/test_risk.py: test RiskScorer.score formula: verify risk = anomaly*0.40 + classifier_score*0.30 + evidence*0.30 with known inputs. test risk_band='Normal' for risk<=30, 'Suspicious' for 31-70, 'Malicious' for >70. test risk is clamped to [0,100]. test EvidenceGenerator.generate returns list of dicts with required keys. test evidence descriptions contain actual numeric values. test evidence_score returns float in [0,100].",
+
+    "Create tests/test_policy.py: test PolicyEngine.check returns action='allow' for risk<=30, 'alert' for 31-70, 'block' for >70 (based on policy.yaml thresholds). test enforce_cli returns 0 when risk<=max_risk, 1 when risk>max_risk.",
+
+    "Create tests/test_api.py: use httpx AsyncClient or TestClient. test GET /health returns 200 with status='healthy'. test POST /analyze with valid events returns 200 with risk_score, classification, anomaly_score. test POST /analyze with invalid events returns 422. test GET /alerts returns 200 list. test PATCH /alerts/{id}/status updates status. test GET /statistics returns expected structure. All tests use the test_db fixture so they don't touch the real DB."
+  ],
+  "acceptance_criteria": [
+    "uvicorn cyber_sentinel.api.main:app runs and GET /health returns {status:'healthy'}",
+    "python -m cyber_sentinel.cli.main --help lists all commands without error",
+    "streamlit run src/cyber_sentinel/dashboard/app.py --server.headless true starts without import errors",
+    "pytest tests/ -v passes all tests (some detection tests will use graceful-degradation mode since models may not be trained in test environment)",
+    "python -m cyber_sentinel.cli.main analyze data/samples/port_scan.jsonl --max-risk 50 exits with code 1 (breach) after models are trained"
+  ],
+  "verification": [
+    "cd 'c:\\Users\\afsha\\PROJECT\\New folder\\cyber-sentinel' && pytest tests/ -v",
+    "python -m cyber_sentinel.cli.main --help"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

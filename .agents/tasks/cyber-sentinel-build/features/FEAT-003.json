@@ -1,0 +1,29 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Data generation and model training scripts. Generates realistic synthetic JSONL samples for all 5 attack classes plus mixed, then trains Isolation Forest and Random Forest models and saves them as joblib files. Depends on FEAT-001 and FEAT-002 (ingestion, features, detection modules must exist).",
+  "status": "pending",
+  "steps": [
+    "Create scripts/generate_demo_data.py as a standalone script (add sys.path insert for src/ at top so it works without pip install -e). Implement generate_normal(n=600) -> list[dict]: random source IPs from 10.0.0.0/24, random common dest ports [80,443,22,53,8080,8443], bytes 100-5000, packets 1-50, auth_status null, event_type 'flow'. Implement generate_port_scan(n=100) -> list[dict]: single source IP (e.g., 10.0.1.100), many dest ports (1-65535 random, ~40+ unique per 60s window), small bytes 40-200, packets 1-3, event_type 'flow'. Implement generate_brute_force(n=100) -> list[dict]: single source (10.0.1.101) to single dest (10.0.0.5), dest_port 22 or 3389, auth_status alternates failure/failure/failure/success at 1:9 ratio, bytes 200-800. Implement generate_lateral_movement(n=100) -> list[dict]: source in 10.0.0.0/24, dests in 10.0.0.0/24 (multiple), dest_ports from [445,135,139,3389,5985], bytes 500-20000. Implement generate_data_exfiltration(n=100) -> list[dict]: source internal 10.0.0.x, dest external (e.g., 203.0.113.x), very high bytes (1MB-500MB per event), low event count. For all generators: assign realistic timestamps spread over a 1-hour window. Write individual JSONL files: data/samples/normal.jsonl, data/samples/port_scan.jsonl, data/samples/brute_force.jsonl, data/samples/lateral_movement.jsonl, data/samples/data_exfiltration.jsonl. Write data/samples/mixed.jsonl combining all. Write data/training/training_data.jsonl (all events) and data/training/training_labels.csv (columns: event_index, label). Print summary stats and file paths. All paths resolved relative to this script's location (scripts/../ = project root).",
+
+    "Create scripts/train_models.py as a standalone script (sys.path insert for src/). Steps: 1) Load data/training/training_data.jsonl and data/training/training_labels.csv. 2) Parse and normalize all records using TelemetryParser and TelemetryNormalizer. 3) Group records by source_ip into 60-second windows using SlidingWindowBuffer logic — for training, group synthetically: for each labeled batch (same label block), treat as one window. 4) Extract features for each window with FeatureExtractor, producing a row per window with its label. 5) Build X (np.ndarray shape [n_windows, 26]) and y (list[str] of labels). 6) Print class distribution. 7) Train AnomalyDetector on all X (unsupervised — no labels needed). 8) Train ThreatClassifier on X, y. 9) Save models to paths from settings (models/anomaly/isolation_forest.joblib, models/classifier/random_forest.joblib etc). 10) Print training summary: n_samples, classes, feature importances top-10. Add --evaluate flag that also runs cross-validation and prints accuracy/per-class F1. Clearly print: 'NOTE: Models trained on SYNTHETIC data — not real-world performance.'",
+
+    "Create scripts/ingest.py: standalone script that takes a file path argument (or reads stdin), parses/validates/normalizes records, runs DetectionPipeline.analyze per window, computes risk scores, generates evidence, saves alerts to SQLite via AlertRepository. Prints a summary table using rich. Supports --max-risk flag (integer 0-100): after all records processed, if any alert's risk_score exceeds threshold, exit with code 1.",
+
+    "Create scripts/evaluate_models.py: loads test split from training data (20% holdout), runs predictions through the full pipeline, prints confusion matrix, per-class precision/recall/F1, overall accuracy, and ROC AUC for anomaly scores. Uses sklearn.metrics. Print: 'NOTE: Evaluation on SYNTHETIC data only.'"
+  ],
+  "acceptance_criteria": [
+    "python scripts/generate_demo_data.py creates all 6 JSONL files in data/samples/ and training files in data/training/ without error",
+    "python scripts/train_models.py creates models/anomaly/isolation_forest.joblib and models/classifier/random_forest.joblib without error",
+    "python scripts/ingest.py data/samples/mixed.jsonl runs without error and prints a summary table",
+    "python scripts/evaluate_models.py prints accuracy and F1 scores without error"
+  ],
+  "verification": [
+    "cd 'c:\\Users\\afsha\\PROJECT\\New folder\\cyber-sentinel' && python scripts/generate_demo_data.py",
+    "python scripts/train_models.py",
+    "python scripts/ingest.py data/samples/mixed.jsonl",
+    "python scripts/evaluate_models.py"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
